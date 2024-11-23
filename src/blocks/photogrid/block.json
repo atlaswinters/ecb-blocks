@@ -1,0 +1,79 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ecb-blocks/photogrid",
+	"version": "0.1.0",
+	"title": "Left Photo Grid",
+	"category": "ecb-blocks",
+	"icon": "layout",
+	"attributes": {
+		"selectedPostId": {
+			"type": "string",
+			"default": ""
+		},
+		"leftPhoto": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1505284361246-cedb2a8d2986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"
+		},
+		"rightPhotoOne": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1571139627661-cf707929f465?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+		},
+		"rightPhotoTwo": {
+			"type": "string",
+			"default": "https://i.pinimg.com/236x/4f/03/8f/4f038fb00c862e60f1ab325ed61e9a71.jpg"
+		},
+		"headline": {
+			"type": "string",
+			"default": "Headline/Title Goes Here"
+		},
+		"subheadline": {
+			"type": "string",
+			"default": "This is an optional subheadline"
+		},
+		"excerpt": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed mi quam. Cras nec ultricies metus, ac facilisis erat. Pellentesque sagittis porta ex, nec dapibus risus porta eu..."
+		},
+		"link": {
+			"type": "string",
+			"default": "#"
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Learn More"
+		}
+	},
+	"supports": {
+		"align": [
+			"wide",
+			"full"
+		],
+		"html": false,
+		"anchor": true,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"keywords": [
+		"Catalog",
+		"Photo",
+		"Grid",
+		"Layout"
+	],
+	"textdomain": "photogrid",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

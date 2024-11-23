@@ -1,0 +1,79 @@
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/photogrid/style.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-ecb-blocks-photogrid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  min-height: 440px;
+  animation: textFadeIn 0.3s ease;
+}
+.wp-block-ecb-blocks-photogrid .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-right: 0.5rem;
+}
+.wp-block-ecb-blocks-photogrid .grid div {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+.wp-block-ecb-blocks-photogrid .grid div > img {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform-origin: center;
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  transition: all 0.8s ease;
+}
+.wp-block-ecb-blocks-photogrid .grid div:hover > img {
+  transform: scale(1.2);
+}
+.wp-block-ecb-blocks-photogrid .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.7rem 3rem 3.5rem 3rem;
+  background: var(--tan);
+}
+.wp-block-ecb-blocks-photogrid .content h1, .wp-block-ecb-blocks-photogrid .content h2, .wp-block-ecb-blocks-photogrid .content p, .wp-block-ecb-blocks-photogrid .content a {
+  align-self: flex-start;
+  animation: textFadeIn 0.6s ease;
+}
+@media only screen and (max-width: 1200px) {
+  .wp-block-ecb-blocks-photogrid {
+    grid-template-columns: 40% 60%;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .wp-block-ecb-blocks-photogrid {
+    grid-template-columns: 1fr;
+  }
+  .wp-block-ecb-blocks-photogrid .grid {
+    margin-bottom: 0.5rem;
+    margin-right: 0rem;
+    min-height: 400px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .wp-block-ecb-blocks-photogrid .grid {
+    min-height: 300px;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

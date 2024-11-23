@@ -1,0 +1,84 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200i,300,300i,400,400i,600,600i,700,700i&display=swap');
+
+:root {
+    --dark-gray: #545353;
+    --creme:      #f7f7f4;
+    --tan:        #f1ece6;
+    --dark-tan:   #e8e1d8;
+    --khaki:      #798072;
+    --dark-khaki: #666b61;
+    --light-gray: #b3b3b3;
+    --gray:       #969696;
+    --dark-gray:  #545353;
+}
+
+.editor-styles-wrapper .wp-block > .ecb-blocks-layout, 
+.alignwide.ecb-blocks-layout, .alignfull.ecb-blocks-layout,
+.ecb-blocks-layout {
+    background: #ffffff;
+    color: #555555;
+    font: 400 1rem/1.47 'Source Sans Pro', sans-serif;
+
+    h1, h2 {
+        color: var(--dark-gray);
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 0px;
+    }
+
+    h1 {
+        font: 400 2rem/1.47 'Montserrat', sans-serif;
+    }
+
+    h2 {
+        font: 400 1.42rem/1.47 'Montserrat', sans-serif;
+        margin-top: 0.5rem;
+    }
+
+    
+    p {
+        font: 400 16px/1.47 'Source Sans Pro', sans-serif;
+    }
+
+    .arrow-button {
+        position: relative;
+        text-decoration: none;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding-bottom: 0.5rem;
+        transition: all 0.3s ease;
+        
+        span {
+            position: absolute;
+            right: -30px;
+            font-size: 27px;
+            font-weight: 100;
+            line-height: 20px;
+        }  
+
+        &:hover {
+            span {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+@keyframes textFadeIn {
+	0% {
+		opacity: 0;
+	}
+    50% {
+        opacity: 0.5;
+    }
+	100% {
+		opacity: 1;
+	}
+}
