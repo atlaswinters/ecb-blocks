@@ -1,5 +1,6 @@
 import PostSelect from '../../lib/ui-components/PostSelect';
 import parseString from '../../lib/helpers/parseString';
+import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
 
 const { InspectorControls, MediaUpload } = wp.blockEditor;
 const { TextControl, Panel, PanelBody, More, Button } = wp.components;
@@ -13,7 +14,7 @@ const Controls = ( props ) => {
                 <PanelBody title="Edit/Update Grid Photos" icon={ More } initialOpen={ false }>
                     <MediaUpload
                         onSelect={ ( media ) => {
-                            props.setAttributes( { leftPhoto: encodeURI( media.url )});
+                            props.setAttributes( { leftPhoto: validateAndEncodeURL( media.url )});
                         }}
                         allowedTypes={ ALLOWED_MEDIA_TYPES }
                         value={ props.attributes.leftPhoto }
@@ -23,7 +24,7 @@ const Controls = ( props ) => {
                     />
                     <MediaUpload
                         onSelect={ ( media ) => {
-                            props.setAttributes( { rightPhotoOne: encodeURI( media.url )});
+                            props.setAttributes( { rightPhotoOne: validateAndEncodeURL( media.url )});
                         }}
                         allowedTypes={ ALLOWED_MEDIA_TYPES }
                         value={ props.attributes.rightPhotoOne }
@@ -33,7 +34,7 @@ const Controls = ( props ) => {
                     />
                     <MediaUpload
                         onSelect={ ( media ) => {
-                            props.setAttributes( { rightPhotoTwo: encodeURI( media.url )});
+                            props.setAttributes( { rightPhotoTwo: validateAndEncodeURL( media.url )});
                         }}
                         allowedTypes={ ALLOWED_MEDIA_TYPES }
                         value={ props.attributes.rightPhotoTwo }
@@ -51,9 +52,9 @@ const Controls = ( props ) => {
                                 if ( selectedPost.value ) {
                                     props.setAttributes( {
                                         selectedPostID: parseString(selectedPost.value.id),
-                                        headline: parseString(selectedPost.value.title.rendered),
-                                        excerpt: parseString(selectedPost.value.excerpt.rendered),
-                                        link: encodeURI(selectedPost.value.link)
+                                        headline: parseString(selectedPost.value.title),
+                                        excerpt:  parseString(selectedPost.value.excerpt),
+                                        link: validateAndEncodeURL(selectedPost.value.url)
                                     });
                                 }
                             }

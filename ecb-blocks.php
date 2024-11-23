@@ -60,3 +60,18 @@ add_action(
 		wp_enqueue_style( 'ecb-blocks-styles', plugin_dir_url( __FILE__ ) . '/build/ecb.blocks.styles.css', array() );
 	}
 );
+
+
+/**
+ *  Registers excerpt REST field for the /wp/v2/search endpoint.
+ *
+ * @since 0.1.0
+ */
+add_action( 'rest_api_init', function () {
+    register_rest_field( 'search-result', 'excerpt', array(
+        'get_callback' => function ( $post_arr ) {
+			$excerpt = sanitize_text_field( get_the_excerpt( $post_arr['id'] ) );
+            return get_the_excerpt( $post_arr['id'] );
+        },
+    ) );
+} );
