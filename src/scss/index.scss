@@ -108,10 +108,10 @@
 }
 
 .ecb-light-text {
-    color: var(--creme);
+    color: var(--creme) !important;
 
     h1, h2, p {
-        color: var(--creme);
+        color: var(--creme) !important;
     }
 
     h2 {
@@ -119,13 +119,13 @@
     }
 
     .arrow-button {
-        color: var(--light-gray) !important;
+        color: var(--creme) !important;
         span {
             svg {
-                fill: var(--light-gray) !important;
+                fill: var(--creme) !important;
 
                 path {
-                    fill: var(--light-gray) !important; 
+                    fill: var(--creme) !important; 
                 }
             }
         }

@@ -121,22 +121,22 @@
 }
 
 .ecb-light-text {
-  color: var(--creme);
+  color: var(--creme) !important;
 }
 .ecb-light-text h1, .ecb-light-text h2, .ecb-light-text p {
-  color: var(--creme);
+  color: var(--creme) !important;
 }
 .ecb-light-text h2 {
   opacity: 0.8;
 }
 .ecb-light-text .arrow-button {
-  color: var(--light-gray) !important;
+  color: var(--creme) !important;
 }
 .ecb-light-text .arrow-button span svg {
-  fill: var(--light-gray) !important;
+  fill: var(--creme) !important;
 }
 .ecb-light-text .arrow-button span svg path {
-  fill: var(--light-gray) !important;
+  fill: var(--creme) !important;
 }
 
 @keyframes ecbFadeIn {

@@ -43,6 +43,7 @@
   padding: 3rem;
   left: -70px;
   margin-right: 2rem;
+  max-width: 600px;
   min-width: 60%;
   background: #fff;
 }
@@ -69,6 +70,7 @@
     position: unset;
     left: 0;
     bottom: 0;
+    width: 90%;
     height: calc(100% - 3rem);
     margin-right: 0;
     padding: 1rem 2rem 2rem 2rem;
