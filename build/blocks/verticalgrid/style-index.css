@@ -15,7 +15,6 @@
 .wp-block-ecb-blocks-vertical-stripes-grid .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 440px;
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child {
   position: relative;
@@ -40,8 +39,10 @@
 .wp-block-ecb-blocks-vertical-stripes-grid .content div {
   position: absolute;
   padding: 3rem;
-  top: 4rem;
+  top: 3rem;
   right: -40px;
+  margin-left: 2rem;
+  max-width: 500px;
   background: #fff;
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .content div h2 {
@@ -55,7 +56,7 @@
 }
 @media only screen and (max-width: 740px) {
   .wp-block-ecb-blocks-vertical-stripes-grid {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 65% 35%;
   }
   .wp-block-ecb-blocks-vertical-stripes-grid .grid {
     grid-template-columns: 1fr;
@@ -64,7 +65,9 @@
     display: none;
   }
   .wp-block-ecb-blocks-vertical-stripes-grid .content div {
-    right: -110px;
+    position: unset;
+    right: 0;
+    margin-left: 0;
   }
 }
 

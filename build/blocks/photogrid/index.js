@@ -2749,7 +2749,7 @@ function Edit(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
         children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(excerpt)
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("a", {
-        href: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(link),
+        href: "#",
         class: "arrow-button",
         children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(linkText), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_rightArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {})
@@ -2926,15 +2926,14 @@ __webpack_require__.r(__webpack_exports__);
 const RightArrow = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   version: "1.1",
-  width: "96",
-  height: "96",
-  viewbox: "0 0 96 96",
+  viewBox: "0 0 96 96",
+  width: "38",
+  height: "38",
   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", {
     x: "0",
     y: "0",
     width: "96",
-    height: "96",
-    fill: "transaprent"
+    height: "96"
   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("g", {
     transform: "translate(24, 60)",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {

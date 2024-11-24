@@ -62,7 +62,7 @@ export default function Edit(props) {
 				<div style={{ background: contentBgColor }}>
 					<h1>{parseString(headline)}</h1>
 					<h2>{parseString(subheadline)}</h2>
-					<a href={validateAndEncodeURL(link)} class="arrow-button">{parseString(linkText)}<span><RightArrow/></span></a>
+					<a href='#' class="arrow-button">{parseString(linkText)}<span><RightArrow/></span></a>
 				</div>
 			</div>
 			<div className="grid">

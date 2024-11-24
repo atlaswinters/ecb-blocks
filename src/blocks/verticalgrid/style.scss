@@ -12,7 +12,6 @@
 	.grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		min-height: 440px;
 
 		div:last-child {
 			position: relative;
@@ -40,8 +39,10 @@
 		div {
 			position: absolute;
 			padding: 3rem;
-			top: 4rem;
+			top: 3rem;
 			right: -40px;
+			margin-left: 2rem;
+			max-width: 500px;
 			background: #fff;
 
 			h2 {
@@ -58,7 +59,7 @@
 	}
 
 	@media only screen and (max-width: 740px) {
-		grid-template-columns: 50% 50%;
+		grid-template-columns: 65% 35%;
 
 		.grid {
 			grid-template-columns: 1fr;
@@ -70,7 +71,9 @@
 
 		.content {
 			div {
-				right: -110px;
+				position: unset;
+				right: 0;
+				margin-left: 0;
 			}
 		}
 	}

@@ -70,7 +70,7 @@ export default function Edit(props) {
 				<h1>{parseString(headline)}</h1>
 				<h2>{parseString(subheadline)}</h2>
 				<p>{parseString(excerpt)}</p>
-				<a href={validateAndEncodeURL(link)} class="arrow-button">{parseString(linkText)}<span><RightArrow /></span></a>
+				<a href='#' class="arrow-button">{parseString(linkText)}<span><RightArrow /></span></a>
 			</div>
 			<Controls {...props} />
 		</div>
