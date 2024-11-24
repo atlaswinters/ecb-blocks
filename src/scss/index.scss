@@ -9,69 +9,128 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200i,300,300i,400,400i,600,600i,700,700i&display=swap');
 
 :root {
-    --dark-gray: #545353;
+
     --creme:      #f7f7f4;
     --tan:        #f1ece6;
     --dark-tan:   #e8e1d8;
     --khaki:      #798072;
     --dark-khaki: #666b61;
-    --light-gray: #b3b3b3;
-    --gray:       #969696;
-    --dark-gray:  #545353;
+    --light-gray: #a4a4a4;
+    --gray:       #515151;
+    --dark-gray: #413e3e;
 }
 
 .editor-styles-wrapper .wp-block > .ecb-blocks-layout, 
 .alignwide.ecb-blocks-layout, .alignfull.ecb-blocks-layout,
 .ecb-blocks-layout {
     background: #ffffff;
-    color: #555555;
-    font: 400 1rem/1.47 'Source Sans Pro', sans-serif;
+    font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
 
     h1, h2 {
-        color: var(--dark-gray);
         font-family: 'Montserrat', sans-serif;
         margin-bottom: 0px;
     }
 
     h1 {
-        font: 400 2rem/1.47 'Montserrat', sans-serif;
+        font: 400 1.88rem/1.55 'Montserrat', sans-serif;
     }
 
     h2 {
-        font: 400 1.42rem/1.47 'Montserrat', sans-serif;
-        margin-top: 0.5rem;
+        font: 400 1.28rem/1.5 'Montserrat', sans-serif;
+        margin-top: 0.75rem;
     }
 
     
     p {
-        font: 400 16px/1.47 'Source Sans Pro', sans-serif;
+        font: 400 15px/1.47 'Source Sans Pro', sans-serif;
     }
 
     .arrow-button {
         position: relative;
-        text-decoration: none;
         font-size: 15px;
-        text-transform: uppercase;
-        padding-bottom: 0.5rem;
         transition: all 0.3s ease;
-        
-        span {
+        color: var(--gray);
+        text-decoration: none;
+        font: 400 1.1rem/1.5 'Montserrat', sans-serif;
+        place-self: flex-start;
+
+        &:after {
+            content: " ";
+            display: block;
             position: absolute;
-            right: -30px;
-            font-size: 27px;
-            font-weight: 100;
-            line-height: 20px;
-        }  
+            bottom: -12px;
+            height: 2px;
+            width: 0;
+            background: var(--light-gray);
+            transition: width 0.5s ease;          
+        }
 
         &:hover {
-            span {
-                visibility: visible;
+            &:after {
+                width: 129%;
+            }
+        }
+
+        span {
+            svg {
+                position: absolute;
+                display: block;
+                top: -7px;
+                left: 100%;
+                width: 38px;
+                height: 38px;
+                transition: all 0.8s ease;
+                fill: var(--dark-gray);
+                path, {
+                    fill: var(--dark-gray); 
+                }
+                rect {
+                    fill: transparent;
+                }
+            }
+        }  
+    }
+}
+
+.ecb-dark-text {
+    h1 {
+        color: var(--dark-gray);
+    }
+    h2 {
+        color: var(--gray);
+        opacity: 0.8;
+    }
+    p {
+        color: var(--gray);
+    }
+}
+
+.ecb-light-text {
+    color: var(--creme);
+
+    h1, h2, p {
+        color: var(--creme);
+    }
+
+    h2 {
+        opacity: 0.8;
+    }
+
+    .arrow-button {
+        color: var(--light-gray) !important;
+        span {
+            svg {
+                fill: var(--light-gray) !important;
+
+                path {
+                    fill: var(--light-gray) !important; 
+                }
             }
         }
     }
 }
 
-@keyframes textFadeIn {
+@keyframes ecbFadeIn {
 	0% {
 		opacity: 0;
 	}
@@ -80,5 +139,17 @@
     }
 	100% {
 		opacity: 1;
+	}
+}
+
+@keyframes ecbArrowBump {
+	0% {
+		margin-left: 10px;
+	}
+    50% {
+        margin-left: 25px;
+    }
+	100% {
+        margin-left: 10px;
 	}
 }

@@ -2496,104 +2496,174 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_ui_components_PostSelect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/ui-components/PostSelect */ "./src/lib/ui-components/PostSelect.js");
 /* harmony import */ var _lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/helpers/parseString */ "./src/lib/helpers/parseString.js");
 /* harmony import */ var _lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/helpers/validateAndEncodeURL */ "./src/lib/helpers/validateAndEncodeURL.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_ecb_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/ecb-colors */ "./src/components/ecb-colors.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 const {
   InspectorControls,
-  MediaUpload
+  MediaUpload,
+  useSetting
 } = wp.blockEditor;
 const {
   TextControl,
   Panel,
   PanelBody,
   More,
-  Button
+  Button,
+  ColorPalette,
+  ToggleControl
 } = wp.components;
 const ALLOWED_MEDIA_TYPES = ['image'];
 const Controls = props => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(InspectorControls, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Panel, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(PanelBody, {
-        title: "Edit/Update Vertical Stripes Grid Photo",
+  const {
+    setAttributes,
+    attributes: {
+      stripeOneBgColor,
+      stripeThreeBgColor,
+      contentBgColor,
+      invertTextColors,
+      highlightedPhoto,
+      headline,
+      subheadline,
+      sidequote,
+      link,
+      linkText
+    }
+  } = props;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(InspectorControls, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Panel, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(PanelBody, {
+        title: "Photo",
         icon: More,
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(MediaUpload, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MediaUpload, {
           onSelect: media => {
-            props.setAttributes({
+            setAttributes({
               highlightedPhoto: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(media.url)
             });
           },
           allowedTypes: ALLOWED_MEDIA_TYPES,
-          value: props.attributes.highlightedPhoto,
+          value: highlightedPhoto,
           render: ({
             open
-          }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Button, {
+          }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Button, {
             className: "button",
             onClick: open,
             children: "Update Main Vertical Image"
           })
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Panel, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(PanelBody, {
-        title: "Edit Vertical Stripes Grid Content",
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Panel, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
+        title: "Content",
         icon: More,
         initialOpen: false,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lib_ui_components_PostSelect__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_lib_ui_components_PostSelect__WEBPACK_IMPORTED_MODULE_0__["default"], {
             onChange: selectedPost => {
               if (selectedPost.value) {
-                props.setAttributes({
-                  selectedPostID: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(selectedPost.value.id),
+                setAttributes({
+                  selectedPostId: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(selectedPost.value.id),
                   headline: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(selectedPost.value.title),
                   excerpt: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(selectedPost.value.excerpt),
                   link: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(selectedPost.value.url)
                 });
               }
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
           label: "Headline",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.headline),
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(headline),
           onChange: value => {
             props.setAttributes({
               headline: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
             });
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
           label: "Subheadline",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.subheadline),
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(subheadline),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               subheadline: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
             });
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
           label: "Side Quote",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.sidequote),
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(sidequote),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               sidequote: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
             });
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
-          label: "CTA/Block Link",
-          value: encodeURI(props.attributes.link),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
+          label: "Link",
+          value: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(link),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               link: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(value)
             });
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
-          label: "CTA/Block Link Text",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.linkText),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
+          label: "Link Text",
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(linkText),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               linkText: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
+            });
+          }
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Panel, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
+        title: "Colors",
+        icon: More,
+        initialOpen: false,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+            children: "First Stripe Background Color"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ColorPalette, {
+          value: stripeOneBgColor,
+          colors: [..._components_ecb_colors__WEBPACK_IMPORTED_MODULE_3__["default"], ...useSetting('color.palette')],
+          onChange: value => setAttributes({
+            stripeOneBgColor: value
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+            children: "Last Stripe Background Color"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ColorPalette, {
+          value: stripeThreeBgColor,
+          colors: [..._components_ecb_colors__WEBPACK_IMPORTED_MODULE_3__["default"], ...useSetting('color.palette')],
+          onChange: value => setAttributes({
+            stripeThreeBgColor: value
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+            children: "Content Square Background Color"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ColorPalette, {
+          value: contentBgColor,
+          colors: [..._components_ecb_colors__WEBPACK_IMPORTED_MODULE_3__["default"], ...useSetting('color.palette')],
+          onChange: value => setAttributes({
+            contentBgColor: value
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+            children: "Invert Text Colors"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleControl, {
+          label: "Invert Text Colors",
+          help: invertTextColors ? 'Light Text Colors' : 'Dark Text Colors',
+          checked: invertTextColors,
+          onChange: value => {
+            setAttributes({
+              invertTextColors: value
             });
           }
         })]
@@ -2618,13 +2688,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controls */ "./src/blocks/verticalgrid/controls.js");
 /* harmony import */ var _lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/helpers/parseString */ "./src/lib/helpers/parseString.js");
 /* harmony import */ var _lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/helpers/validateAndEncodeURL */ "./src/lib/helpers/validateAndEncodeURL.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/verticalgrid/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_internalLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/internalLink */ "./src/components/internalLink.js");
+/* harmony import */ var _components_rightArrow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/rightArrow */ "./src/components/rightArrow.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/verticalgrid/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
 
 
 
@@ -2661,36 +2736,60 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function Edit(props) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
-    className: 'ecb-blocks-layout wp-block-ecb-blocks-vertical-stripes-grid'
+  const {
+    attributes: {
+      stripeOneBgColor,
+      stripeThreeBgColor,
+      contentBgColor,
+      invertTextColors,
+      highlightedPhoto,
+      headline,
+      subheadline,
+      sidequote,
+      link,
+      linkText
+    }
+  } = props;
+  const invertedTextClass = invertTextColors ? 'ecb-light-text' : 'ecb-dark-text';
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.useBlockProps)({
+    className: `ecb-blocks-layout wp-block-ecb-blocks-vertical-stripes-grid ${invertedTextClass}`
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     ...blockProps,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
-          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.headline)
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
-          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.subheadline)
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
-          href: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(props.attributes.link),
+      style: {
+        background: stripeOneBgColor
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        style: {
+          background: contentBgColor
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(headline)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
+          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(subheadline)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
+          href: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(link),
           class: "arrow-button",
-          children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.linkText), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-            children: "\u21FE"
+          children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(linkText), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_rightArrow__WEBPACK_IMPORTED_MODULE_4__["default"], {})
           })]
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "grid",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-        src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(props.attributes.highlightedPhoto)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.sidequote)
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+        src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(highlightedPhoto)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        style: {
+          background: stripeThreeBgColor
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(sidequote)
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_0__["default"], {
       ...props
     })]
   });
@@ -2764,10 +2863,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/helpers/parseString */ "./src/lib/helpers/parseString.js");
 /* harmony import */ var _lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/helpers/validateAndEncodeURL */ "./src/lib/helpers/validateAndEncodeURL.js");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_internalLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/internalLink */ "./src/components/internalLink.js");
+/* harmony import */ var _components_rightArrow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/rightArrow */ "./src/components/rightArrow.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
+
 
 
 
@@ -2789,39 +2892,172 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 
-function save(props) {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: "ecb-blocks-layout wp-block-ecb-blocks-vertical-stripes-grid"
+function save({
+  attributes: {
+    stripeOneBgColor,
+    stripeThreeBgColor,
+    contentBgColor,
+    invertTextColors,
+    highlightedPhoto,
+    headline,
+    subheadline,
+    sidequote,
+    link,
+    linkText
+  }
+}) {
+  const invertedTextClass = invertTextColors ? 'ecb-light-text' : 'ecb-dark-text';
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps.save({
+    className: `ecb-blocks-layout wp-block-ecb-blocks-vertical-stripes-grid ${invertedTextClass}`
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     ...blockProps,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.headline)
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.subheadline)
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-          href: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.link),
+      style: {
+        background: stripeOneBgColor
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        style: {
+          background: contentBgColor
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(headline)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(subheadline)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
+          href: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(link),
           class: "arrow-button",
-          children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.linkText), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            children: "\u21FE"
+          children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(linkText), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_rightArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {})
           })]
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "grid",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.highlightedPhoto)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.sidequote)
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+        src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(highlightedPhoto)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        style: {
+          background: stripeThreeBgColor
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+          children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(sidequote)
         })
       })]
     })]
   });
 }
+
+/***/ }),
+
+/***/ "./src/components/ecb-colors.js":
+/*!**************************************!*\
+  !*** ./src/components/ecb-colors.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const ecbcolors = [{
+  color: '#f7f7f4',
+  name: 'Creme'
+}, {
+  color: '#f1ece6',
+  name: 'Tan'
+}, {
+  color: '#e8e1d8',
+  name: 'Dark Tan'
+}, {
+  color: '#798072',
+  name: 'Khaki'
+}, {
+  color: '#666b61',
+  name: 'Dark Khaki'
+}, {
+  color: '#a4a4a4',
+  name: 'Light Gray'
+}, {
+  color: '#515151',
+  name: 'Gray'
+}, {
+  color: '#413e3',
+  name: 'Dark Gray'
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ecbcolors);
+
+/***/ }),
+
+/***/ "./src/components/internalLink.js":
+/*!****************************************!*\
+  !*** ./src/components/internalLink.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const InternalLink = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "35px",
+  height: "35px",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("g", {
+    id: "Arrow / Arrow_Circle_Down_Left",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+      id: "Vector",
+      d: "M9 11V15M9 15H13M9 15L15 9M21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12Z",
+      "stroke-width": "0.5",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round"
+    })
+  })
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InternalLink);
+
+/***/ }),
+
+/***/ "./src/components/rightArrow.js":
+/*!**************************************!*\
+  !*** ./src/components/rightArrow.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const RightArrow = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  version: "1.1",
+  width: "96",
+  height: "96",
+  viewbox: "0 0 96 96",
+  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", {
+    x: "0",
+    y: "0",
+    width: "96",
+    height: "96",
+    fill: "transaprent"
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("g", {
+    transform: "translate(24, 60)",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+      d: "M3.36-11.04Q2.69-11.38 2.69-12 2.69-12.62 3.36-12.96L3.36-12.96 40.08-12.96Q36.67-15.5 34.8-19.1L34.8-19.1Q33.6-21.41 33.22-23.66L33.22-23.66Q33.22-23.76 33.19-23.86 33.17-23.95 33.17-24L33.17-24Q33.17-24.53 34.13-24.53L34.13-24.53Q34.7-24.53 34.87-24.41 35.04-24.29 35.14-23.86L35.14-23.86Q35.28-22.9 35.66-21.89L35.66-21.89Q36.72-18.67 39.17-16.15 41.62-13.63 44.88-12.53L44.88-12.53Q45.31-12.38 45.31-12 45.31-11.62 44.88-11.47L44.88-11.47Q41.62-10.37 39.17-7.85 36.72-5.33 35.66-2.11L35.66-2.11Q35.33-1.1 35.14-0.19L35.14-0.19Q35.04 0.29 34.87 0.41 34.7 0.53 34.13 0.53L34.13 0.53Q33.12 0.53 33.12 0L33.12 0Q33.12-0.14 33.41-1.2L33.41-1.2Q34.9-7.2 40.08-11.04L40.08-11.04 3.36-11.04Z",
+      fill: "#404040"
+    })
+  })]
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RightArrow);
 
 /***/ }),
 
@@ -2912,6 +3148,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dompurify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dompurify */ "./node_modules/dompurify/dist/purify.es.mjs");
 
 const validateAndEncodeURL = url => {
+  if (url == '#') {
+    return '#';
+  }
   try {
     const urlObj = new URL(url);
     if (urlObj.origin !== window.location.origin && urlObj.origin !== 'https://images.unsplash.com' && urlObj.origin !== 'https://i.pinimg.com') {
@@ -13165,7 +13404,7 @@ function combine (array, callback) {
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ecb-blocks/verticalgrid","version":"0.1.0","title":"Vertical Stripes Grid","category":"ecb-blocks","icon":"layout","attributes":{"selectedPostId":{"type":"string","default":""},"highlightedPhoto":{"type":"string","default":"https://images.unsplash.com/photo-1505284361246-cedb2a8d2986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"},"headline":{"type":"string","default":"Headline/Title Goes Here"},"subheadline":{"type":"string","default":"This is an optional subheadline"},"sidequote":{"type":"string","default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."},"link":{"type":"string","default":"#"},"linkText":{"type":"string","default":"Learn More"}},"supports":{"align":["wide","full"],"html":false,"anchor":true,"color":{"background":true,"text":true,"link":true},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true}},"keywords":["Catalog","vertical","stripes","Layout"],"textdomain":"ecb-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ecb-blocks/verticalgrid","version":"0.1.0","title":"Vertical Stripes Grid","category":"ecb-blocks","icon":"layout","attributes":{"stripeOneBgColor":{"type":"string","default":"#f1ece6"},"stripeThreeBgColor":{"type":"string","default":"#666b61"},"contentBgColor":{"type":"string","default":"#f7f7f4"},"invertTextColors":{"type":"boolean","default":false},"selectedPostId":{"type":"string","default":""},"highlightedPhoto":{"type":"string","default":"https://images.unsplash.com/photo-1505284361246-cedb2a8d2986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"},"headline":{"type":"string","default":"Headline/Title Goes Here"},"subheadline":{"type":"string","default":"This is an optional subheadline"},"sidequote":{"type":"string","default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."},"link":{"type":"string","default":"#"},"linkText":{"type":"string","default":"Learn More"}},"supports":{"align":["wide","full"],"html":false,"anchor":true,"color":{"background":true,"text":true,"link":true},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true}},"keywords":["Catalog","vertical","stripes","Layout"],"textdomain":"ecb-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

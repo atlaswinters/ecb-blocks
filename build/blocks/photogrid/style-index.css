@@ -11,7 +11,7 @@
   display: grid;
   grid-template-columns: 30% 70%;
   min-height: 440px;
-  animation: textFadeIn 0.3s ease;
+  animation: ecbFadeIn 0.3s ease;
 }
 .wp-block-ecb-blocks-photogrid .grid {
   display: grid;

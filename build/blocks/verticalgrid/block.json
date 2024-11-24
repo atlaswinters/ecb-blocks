@@ -7,6 +7,22 @@
   "category": "ecb-blocks",
   "icon": "layout",
   "attributes": {
+    "stripeOneBgColor": {
+      "type": "string",
+      "default": "#f1ece6"
+    },
+    "stripeThreeBgColor": {
+      "type": "string",
+      "default": "#666b61"
+    },
+    "contentBgColor": {
+      "type": "string",
+      "default": "#f7f7f4"
+    },
+    "invertTextColors": {
+      "type": "boolean",
+      "default": false
+    },
     "selectedPostId": {
       "type": "string",
       "default": ""

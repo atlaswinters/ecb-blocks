@@ -16,75 +16,128 @@
  * that are used across the project.
 */
 :root {
-  --dark-gray: #545353;
   --creme: #f7f7f4;
   --tan: #f1ece6;
   --dark-tan: #e8e1d8;
   --khaki: #798072;
   --dark-khaki: #666b61;
-  --light-gray: #b3b3b3;
-  --gray: #969696;
-  --dark-gray: #545353;
+  --light-gray: #a4a4a4;
+  --gray: #515151;
+  --dark-gray: #413e3e;
 }
 
 .editor-styles-wrapper .wp-block > .ecb-blocks-layout,
 .alignwide.ecb-blocks-layout, .alignfull.ecb-blocks-layout,
 .ecb-blocks-layout {
   background: #ffffff;
-  color: #555555;
-  font: 400 1rem/1.47 "Source Sans Pro", sans-serif;
+  font: 400 1rem/1.5 "Source Sans Pro", sans-serif;
 }
 .editor-styles-wrapper .wp-block > .ecb-blocks-layout h1, .editor-styles-wrapper .wp-block > .ecb-blocks-layout h2,
 .alignwide.ecb-blocks-layout h1,
 .alignwide.ecb-blocks-layout h2, .alignfull.ecb-blocks-layout h1, .alignfull.ecb-blocks-layout h2,
 .ecb-blocks-layout h1,
 .ecb-blocks-layout h2 {
-  color: var(--dark-gray);
   font-family: "Montserrat", sans-serif;
   margin-bottom: 0px;
 }
 .editor-styles-wrapper .wp-block > .ecb-blocks-layout h1,
 .alignwide.ecb-blocks-layout h1, .alignfull.ecb-blocks-layout h1,
 .ecb-blocks-layout h1 {
-  font: 400 2rem/1.47 "Montserrat", sans-serif;
+  font: 400 1.88rem/1.55 "Montserrat", sans-serif;
 }
 .editor-styles-wrapper .wp-block > .ecb-blocks-layout h2,
 .alignwide.ecb-blocks-layout h2, .alignfull.ecb-blocks-layout h2,
 .ecb-blocks-layout h2 {
-  font: 400 1.42rem/1.47 "Montserrat", sans-serif;
-  margin-top: 0.5rem;
+  font: 400 1.28rem/1.5 "Montserrat", sans-serif;
+  margin-top: 0.75rem;
 }
 .editor-styles-wrapper .wp-block > .ecb-blocks-layout p,
 .alignwide.ecb-blocks-layout p, .alignfull.ecb-blocks-layout p,
 .ecb-blocks-layout p {
-  font: 400 16px/1.47 "Source Sans Pro", sans-serif;
+  font: 400 15px/1.47 "Source Sans Pro", sans-serif;
 }
 .editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button,
 .alignwide.ecb-blocks-layout .arrow-button, .alignfull.ecb-blocks-layout .arrow-button,
 .ecb-blocks-layout .arrow-button {
   position: relative;
-  text-decoration: none;
   font-size: 15px;
-  text-transform: uppercase;
-  padding-bottom: 0.5rem;
   transition: all 0.3s ease;
+  color: var(--gray);
+  text-decoration: none;
+  font: 400 1.1rem/1.5 "Montserrat", sans-serif;
+  place-self: flex-start;
 }
-.editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button span,
-.alignwide.ecb-blocks-layout .arrow-button span, .alignfull.ecb-blocks-layout .arrow-button span,
-.ecb-blocks-layout .arrow-button span {
+.editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button:after,
+.alignwide.ecb-blocks-layout .arrow-button:after, .alignfull.ecb-blocks-layout .arrow-button:after,
+.ecb-blocks-layout .arrow-button:after {
+  content: " ";
+  display: block;
   position: absolute;
-  right: -30px;
-  font-size: 27px;
-  font-weight: 100;
-  line-height: 20px;
+  bottom: -12px;
+  height: 2px;
+  width: 0;
+  background: var(--light-gray);
+  transition: width 0.5s ease;
 }
-.editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button:hover span,
-.alignwide.ecb-blocks-layout .arrow-button:hover span, .alignfull.ecb-blocks-layout .arrow-button:hover span,
-.ecb-blocks-layout .arrow-button:hover span {
-  visibility: visible;
+.editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button:hover:after,
+.alignwide.ecb-blocks-layout .arrow-button:hover:after, .alignfull.ecb-blocks-layout .arrow-button:hover:after,
+.ecb-blocks-layout .arrow-button:hover:after {
+  width: 129%;
+}
+.editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button span svg,
+.alignwide.ecb-blocks-layout .arrow-button span svg, .alignfull.ecb-blocks-layout .arrow-button span svg,
+.ecb-blocks-layout .arrow-button span svg {
+  position: absolute;
+  display: block;
+  top: -7px;
+  left: 100%;
+  width: 38px;
+  height: 38px;
+  transition: all 0.8s ease;
+  fill: var(--dark-gray);
+}
+.editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button span svg path,
+.alignwide.ecb-blocks-layout .arrow-button span svg path, .alignfull.ecb-blocks-layout .arrow-button span svg path,
+.ecb-blocks-layout .arrow-button span svg path {
+  fill: var(--dark-gray);
+}
+.editor-styles-wrapper .wp-block > .ecb-blocks-layout .arrow-button span svg rect,
+.alignwide.ecb-blocks-layout .arrow-button span svg rect, .alignfull.ecb-blocks-layout .arrow-button span svg rect,
+.ecb-blocks-layout .arrow-button span svg rect {
+  fill: transparent;
 }
 
-@keyframes textFadeIn {
+.ecb-dark-text h1 {
+  color: var(--dark-gray);
+}
+.ecb-dark-text h2 {
+  color: var(--gray);
+  opacity: 0.8;
+}
+.ecb-dark-text p {
+  color: var(--gray);
+}
+
+.ecb-light-text {
+  color: var(--creme);
+}
+.ecb-light-text h1, .ecb-light-text h2, .ecb-light-text p {
+  color: var(--creme);
+}
+.ecb-light-text h2 {
+  opacity: 0.8;
+}
+.ecb-light-text .arrow-button {
+  color: var(--light-gray) !important;
+}
+.ecb-light-text .arrow-button span svg {
+  fill: var(--light-gray) !important;
+}
+.ecb-light-text .arrow-button span svg path {
+  fill: var(--light-gray) !important;
+}
+
+@keyframes ecbFadeIn {
   0% {
     opacity: 0;
   }
@@ -93,6 +146,17 @@
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes ecbArrowBump {
+  0% {
+    margin-left: 10px;
+  }
+  50% {
+    margin-left: 25px;
+  }
+  100% {
+    margin-left: 10px;
   }
 }
 

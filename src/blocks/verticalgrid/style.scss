@@ -7,27 +7,28 @@
  .wp-block-ecb-blocks-vertical-stripes-grid {
 	display: grid;
 	grid-template-columns: 60% 40%;
-	min-height: 440px;
+	animation: ecbFadeIn 0.3s ease;
 
 	.grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+		min-height: 440px;
 
 		div:last-child {
+			position: relative;
 			text-align: center;
-			color: #fff;
 			background: var(--dark-khaki);
 
 			p {
-				display: flex;
+				display: inline-flex;
+				text-align: center;
 				align-items: center;
 				justify-content: center;
-				text-align: center;
+				padding: 2rem 0;
 				font: italic 100 1rem/1.47 'Montserrat', sans-serif;
 				writing-mode: vertical-rl;
 				text-orientation: mixed;
-				width: 80%;
-				height: 400px;
+				color: var(--creme);
 			}
 		}
 	}
@@ -47,6 +48,7 @@
 				margin-bottom: 2rem;
 			}
 		}
+
 	}
 
 	div > img {

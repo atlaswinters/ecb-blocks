@@ -1,23 +1,52 @@
 import PostSelect from '../../lib/ui-components/PostSelect';
 import parseString from '../../lib/helpers/parseString';
 import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
+import ecbcolors from '../../components/ecb-colors';
 
-const { InspectorControls, MediaUpload } = wp.blockEditor;
-const { TextControl, Panel, PanelBody, More, Button } = wp.components;
+const {
+    InspectorControls,
+    MediaUpload,
+    useSetting,
+} = wp.blockEditor;
+
+const {
+    TextControl,
+    Panel,
+    PanelBody,
+    More,
+    Button,
+    ColorPalette,
+    ToggleControl
+} = wp.components;
 
 const ALLOWED_MEDIA_TYPES = ['image'];
 
 const Controls = (props) => {
+    const{
+        setAttributes,
+        attributes: {
+            stripeOneBgColor,
+            stripeThreeBgColor,
+            contentBgColor,
+            invertTextColors,
+            highlightedPhoto,
+            headline,
+            subheadline,
+            sidequote,
+            link,
+            linkText
+        }
+    } = props;
     return (
         <InspectorControls>
             <Panel>
-                <PanelBody title="Edit/Update Vertical Stripes Grid Photo" icon={More} initialOpen={false}>
+                <PanelBody title="Photo" icon={More} initialOpen={false}>
                     <MediaUpload
                         onSelect={(media) => {
-                            props.setAttributes({ highlightedPhoto: validateAndEncodeURL(media.url) });
+                            setAttributes({ highlightedPhoto: validateAndEncodeURL(media.url) });
                         }}
                         allowedTypes={ALLOWED_MEDIA_TYPES}
-                        value={props.attributes.highlightedPhoto}
+                        value={highlightedPhoto}
                         render={({ open }) => (
                             <Button className="button" onClick={open}>Update Main Vertical Image</Button>
                         )}
@@ -25,13 +54,13 @@ const Controls = (props) => {
                 </PanelBody>
             </Panel>
             <Panel>
-                <PanelBody title="Edit Vertical Stripes Grid Content" icon={More} initialOpen={false}>
+                <PanelBody title="Content" icon={More} initialOpen={false}>
                     <div>
                         <PostSelect
                             onChange={(selectedPost) => {
                                 if (selectedPost.value) {
-                                    props.setAttributes({
-                                        selectedPostID: parseString(selectedPost.value.id),
+                                    setAttributes({
+                                        selectedPostId: parseString(selectedPost.value.id),
                                         headline: parseString(selectedPost.value.title),
                                         excerpt: parseString(selectedPost.value.excerpt),
                                         link: validateAndEncodeURL(selectedPost.value.url)
@@ -43,28 +72,69 @@ const Controls = (props) => {
                     </div>
                     <TextControl
                         label='Headline'
-                        value={parseString(props.attributes.headline)}
+                        value={parseString(headline)}
                         onChange={(value) => { props.setAttributes({ headline: parseString(value) }) }}
                     />
                     <TextControl
                         label='Subheadline'
-                        value={parseString(props.attributes.subheadline)}
-                        onChange={(value) => { props.setAttributes({ subheadline: parseString(value) }) }}
+                        value={parseString(subheadline)}
+                        onChange={(value) => { setAttributes({ subheadline: parseString(value) }) }}
                     />
                     <TextControl
                         label='Side Quote'
-                        value={parseString(props.attributes.sidequote)}
-                        onChange={(value) => { props.setAttributes({ sidequote: parseString(value) }) }}
+                        value={parseString(sidequote)}
+                        onChange={(value) => { setAttributes({ sidequote: parseString(value) }) }}
                     />
                     <TextControl
-                        label='CTA/Block Link'
-                        value={encodeURI(props.attributes.link)}
-                        onChange={(value) => { props.setAttributes({ link: validateAndEncodeURL(value) }) }}
+                        label='Link'
+                        value={validateAndEncodeURL(link)}
+                        onChange={(value) => { setAttributes({ link: validateAndEncodeURL(value) }) }}
                     />
                     <TextControl
-                        label='CTA/Block Link Text'
-                        value={parseString(props.attributes.linkText)}
-                        onChange={(value) => { props.setAttributes({ linkText: parseString(value) }) }}
+                        label='Link Text'
+                        value={parseString(linkText)}
+                        onChange={(value) => { setAttributes({ linkText: parseString(value) }) }}
+                    />
+                </PanelBody>
+            </Panel>
+            <Panel>
+                <PanelBody title="Colors" icon={More} initialOpen={false}>
+                    <hr />
+                    <p><strong>First Stripe Background Color</strong></p>
+                    <ColorPalette
+                        value={stripeOneBgColor}
+                        colors={[...ecbcolors, ...useSetting('color.palette')]}
+                        onChange={(value) => setAttributes({ stripeOneBgColor: value })}
+                    />
+                    <hr />
+                    <p><strong>Last Stripe Background Color</strong></p>
+                    <ColorPalette
+                        value={stripeThreeBgColor}
+                        colors={[...ecbcolors, ...useSetting('color.palette')]}
+                        onChange={(value) => setAttributes({ stripeThreeBgColor: value })}
+                    />
+                    <hr />
+                    <p><strong>Content Square Background Color</strong></p>
+                    <ColorPalette
+                        value={contentBgColor}
+                        colors={[...ecbcolors, ...useSetting('color.palette')]}
+                        onChange={(value) => setAttributes({ contentBgColor: value })}
+                    />
+                    <hr />
+                    <p><strong>Invert Text Colors</strong></p>
+                    <ToggleControl
+                        label="Invert Text Colors"
+                        help={
+                            invertTextColors
+                                ? 'Light Text Colors'
+                                : 'Dark Text Colors'
+                        }
+                        checked={invertTextColors}
+                        onChange={(value) => {
+                            setAttributes({
+                                invertTextColors: value
+                            });
+                        }}
                     />
                 </PanelBody>
             </Panel>
