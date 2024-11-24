@@ -15,35 +15,35 @@
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 60% 40%;
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  position: relative;
   background: var(--dark-khaki);
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child p {
-  display: inline-flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
   font: italic 100 1rem/1.47 "Montserrat", sans-serif;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   color: var(--creme);
+  padding: 2rem 0;
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .content {
+  display: flex;
+  align-items: center;
   position: relative;
   background: var(--tan);
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .content div {
   position: absolute;
   padding: 3rem;
-  top: 3rem;
-  left: -40px;
+  left: -70px;
   margin-right: 2rem;
-  max-width: 500px;
+  min-width: 60%;
   background: #fff;
 }
 .wp-block-ecb-blocks-vertical-stripes-grid .content div h2 {

@@ -12,38 +12,38 @@
 
 	.grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 60% 40%;
 
 		div:last-child {
-			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			text-align: center;
+			position: relative;
 			background: var(--dark-khaki);
 
 			p {
-				display: inline-flex;
-				text-align: center;
-				align-items: center;
-				justify-content: center;
-				padding: 2rem 0;
 				font: italic 100 1rem/1.47 'Montserrat', sans-serif;
 				writing-mode: vertical-rl;
 				text-orientation: mixed;
 				color: var(--creme);
+				padding: 2rem 0;
 			}
 		}
 	}
 
 	.content {
+		display: flex;
+		align-items: center;
 		position: relative;
 		background: var(--tan);
 
 		div {
 			position: absolute;
 			padding: 3rem;
-			top: 3rem;
-			right: -40px;
+			right: -70px;
 			margin-left: 2rem;
-			max-width: 500px;
+			min-width: 60%;
 			background: #fff;
 
 			h2 {
