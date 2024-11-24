@@ -1,6 +1,6 @@
 import parseString from '../../lib/helpers/parseString';
 import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
-
+import RightArrow from '../../components/rightArrow';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -18,7 +18,18 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save(props) {
+export default function save({
+	attributes: {
+		leftPhoto,
+		rightPhotoOne,
+		rightPhotoTwo,
+		headline,
+		subheadline,
+		excerpt,
+		link,
+		linkText
+	}
+}) {
 	const blockProps = useBlockProps.save({
 		className: "ecb-blocks-layout wp-block-ecb-blocks-photogrid"
 	});
@@ -26,22 +37,22 @@ export default function save(props) {
 		<div className={blockProps.className}>
 			<div className="grid">
 				<div>
-					<img src={validateAndEncodeURL(props.attributes.leftPhoto)} />
+					<img src={validateAndEncodeURL(leftPhoto)} />
 				</div>
 				<div>
 					<div>
-						<img src={validateAndEncodeURL(props.attributes.rightPhotoOne)} />
+						<img src={validateAndEncodeURL(rightPhotoOne)} />
 					</div>
 					<div>
-						<img src={validateAndEncodeURL(props.attributes.rightPhotoTwo)} />
+						<img src={validateAndEncodeURL(rightPhotoTwo)} />
 					</div>
 				</div>
 			</div>
 			<div className="content">
-				<h1>{parseString(props.attributes.headline)}</h1>
-				<h2>{parseString(props.attributes.subheadline)}</h2>
-				<p>{parseString(props.attributes.excerpt)}</p>
-				<a href={encodeURI(props.attributes.link)} class="arrow-button">{parseString(props.attributes.linkText)} <span>&#8702;</span></a>
+				<h1>{parseString(headline)}</h1>
+				<h2>{parseString(subheadline)}</h2>
+				<p>{parseString(excerpt)}</p>
+				<a href={encodeURI(link)} class="arrow-button">{parseString(linkText)} <span><RightArrow /></span></a>
 			</div>
 		</div>
 	);

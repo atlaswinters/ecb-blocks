@@ -3148,14 +3148,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dompurify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dompurify */ "./node_modules/dompurify/dist/purify.es.mjs");
 
 const validateAndEncodeURL = url => {
-  if (url == '#') {
-    return '#';
-  }
   try {
-    const urlObj = new URL(url);
-    if (urlObj.origin !== window.location.origin && urlObj.origin !== 'https://images.unsplash.com' && urlObj.origin !== 'https://i.pinimg.com') {
-      throw new Error('Invalid URL origin');
-    }
     return dompurify__WEBPACK_IMPORTED_MODULE_0__["default"].sanitize(encodeURI(url), {
       ALLOWED_PROTOCOLS: ['http', 'https']
     });

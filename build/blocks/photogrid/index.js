@@ -2514,21 +2514,33 @@ const {
   Button
 } = wp.components;
 const ALLOWED_MEDIA_TYPES = ['image'];
-const Controls = props => {
+const Controls = ({
+  setAttributes,
+  attributes: {
+    leftPhoto,
+    rightPhotoOne,
+    rightPhotoTwo,
+    headline,
+    subheadline,
+    excerpt,
+    link,
+    linkText
+  }
+}) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(InspectorControls, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Panel, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(PanelBody, {
-        title: "Edit/Update Left Photo Grid Photos",
+        title: "Photos",
         icon: More,
         initialOpen: false,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(MediaUpload, {
           onSelect: media => {
-            props.setAttributes({
+            setAttributes({
               leftPhoto: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(media.url)
             });
           },
           allowedTypes: ALLOWED_MEDIA_TYPES,
-          value: props.attributes.leftPhoto,
+          value: leftPhoto,
           render: ({
             open
           }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Button, {
@@ -2538,12 +2550,12 @@ const Controls = props => {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(MediaUpload, {
           onSelect: media => {
-            props.setAttributes({
-              rightPhotoOne: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(media.url)
+            setAttributes({
+              rightPhotoOne: v(media.url)
             });
           },
           allowedTypes: ALLOWED_MEDIA_TYPES,
-          value: props.attributes.rightPhotoOne,
+          value: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(rightPhotoOne),
           render: ({
             open
           }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Button, {
@@ -2553,12 +2565,12 @@ const Controls = props => {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(MediaUpload, {
           onSelect: media => {
-            props.setAttributes({
+            setAttributes({
               rightPhotoTwo: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(media.url)
             });
           },
           allowedTypes: ALLOWED_MEDIA_TYPES,
-          value: props.attributes.rightPhotoTwo,
+          value: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(rightPhotoTwo),
           render: ({
             open
           }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Button, {
@@ -2570,14 +2582,14 @@ const Controls = props => {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Panel, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(PanelBody, {
-        title: "Edit Left Photo Grid Content",
+        title: "Content",
         icon: More,
         initialOpen: false,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lib_ui_components_PostSelect__WEBPACK_IMPORTED_MODULE_0__["default"], {
             onChange: selectedPost => {
               if (selectedPost.value) {
-                props.setAttributes({
+                setAttributes({
                   selectedPostID: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(selectedPost.value.id),
                   headline: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(selectedPost.value.title),
                   excerpt: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(selectedPost.value.excerpt),
@@ -2588,41 +2600,41 @@ const Controls = props => {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
           label: "Headline",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.headline),
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(headline),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               headline: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
           label: "Subheadline",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.subheadline),
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(subheadline),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               subheadline: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
           label: "Excerpt",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.excerpt),
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(excerpt),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               excerpt: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
-          label: "CTA/Block Link",
-          value: encodeURI(props.attributes.link),
+          label: "Link",
+          value: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(link),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               link: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(value)
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextControl, {
-          label: "CTA/Block Link Text",
-          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.linkText),
+          label: "Link Text",
+          value: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(linkText),
           onChange: value => {
-            props.setAttributes({
+            setAttributes({
               linkText: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(value)
             });
           }
@@ -2648,13 +2660,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controls */ "./src/blocks/photogrid/controls.js");
 /* harmony import */ var _lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/helpers/parseString */ "./src/lib/helpers/parseString.js");
 /* harmony import */ var _lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/helpers/validateAndEncodeURL */ "./src/lib/helpers/validateAndEncodeURL.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/photogrid/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_rightArrow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/rightArrow */ "./src/components/rightArrow.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/photogrid/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -2692,44 +2706,56 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function Edit(props) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.useBlockProps)({
     className: 'ecb-blocks-layout wp-block-ecb-blocks-photogrid'
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  const {
+    attributes: {
+      leftPhoto,
+      rightPhotoOne,
+      rightPhotoTwo,
+      headline,
+      subheadline,
+      excerpt,
+      link,
+      linkText
+    }
+  } = props;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     ...blockProps,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "grid",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-          src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(props.attributes.leftPhoto)
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(leftPhoto)
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(props.attributes.rightPhotoOne)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(rightPhotoOne)
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(props.attributes.rightPhotoTwo)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(rightPhotoTwo)
           })
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
-        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.headline)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
-        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.subheadline)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.excerpt)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
-        href: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(props.attributes.link),
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
+        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(headline)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(subheadline)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(excerpt)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("a", {
+        href: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(link),
         class: "arrow-button",
-        children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.linkText), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-          children: "\u21FE"
+        children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_1__["default"])(linkText), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_rightArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {})
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_0__["default"], {
       ...props
     })]
   });
@@ -2803,10 +2829,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/helpers/parseString */ "./src/lib/helpers/parseString.js");
 /* harmony import */ var _lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/helpers/validateAndEncodeURL */ "./src/lib/helpers/validateAndEncodeURL.js");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_rightArrow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/rightArrow */ "./src/components/rightArrow.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -2828,47 +2855,95 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 
-function save(props) {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
+function save({
+  attributes: {
+    leftPhoto,
+    rightPhotoOne,
+    rightPhotoTwo,
+    headline,
+    subheadline,
+    excerpt,
+    link,
+    linkText
+  }
+}) {
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save({
     className: "ecb-blocks-layout wp-block-ecb-blocks-photogrid"
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: blockProps.className,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "grid",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-          src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.leftPhoto)
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(leftPhoto)
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.rightPhotoOne)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(rightPhotoOne)
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(props.attributes.rightPhotoTwo)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_1__["default"])(rightPhotoTwo)
           })
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.headline)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.subheadline)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.excerpt)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-        href: encodeURI(props.attributes.link),
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(headline)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(subheadline)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: (0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(excerpt)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+        href: encodeURI(link),
         class: "arrow-button",
-        children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(props.attributes.linkText), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          children: "\u21FE"
+        children: [(0,_lib_helpers_parseString__WEBPACK_IMPORTED_MODULE_0__["default"])(linkText), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_rightArrow__WEBPACK_IMPORTED_MODULE_2__["default"], {})
         })]
       })]
     })]
   });
 }
+
+/***/ }),
+
+/***/ "./src/components/rightArrow.js":
+/*!**************************************!*\
+  !*** ./src/components/rightArrow.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const RightArrow = () => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  version: "1.1",
+  width: "96",
+  height: "96",
+  viewbox: "0 0 96 96",
+  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", {
+    x: "0",
+    y: "0",
+    width: "96",
+    height: "96",
+    fill: "transaprent"
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("g", {
+    transform: "translate(24, 60)",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+      d: "M3.36-11.04Q2.69-11.38 2.69-12 2.69-12.62 3.36-12.96L3.36-12.96 40.08-12.96Q36.67-15.5 34.8-19.1L34.8-19.1Q33.6-21.41 33.22-23.66L33.22-23.66Q33.22-23.76 33.19-23.86 33.17-23.95 33.17-24L33.17-24Q33.17-24.53 34.13-24.53L34.13-24.53Q34.7-24.53 34.87-24.41 35.04-24.29 35.14-23.86L35.14-23.86Q35.28-22.9 35.66-21.89L35.66-21.89Q36.72-18.67 39.17-16.15 41.62-13.63 44.88-12.53L44.88-12.53Q45.31-12.38 45.31-12 45.31-11.62 44.88-11.47L44.88-11.47Q41.62-10.37 39.17-7.85 36.72-5.33 35.66-2.11L35.66-2.11Q35.33-1.1 35.14-0.19L35.14-0.19Q35.04 0.29 34.87 0.41 34.7 0.53 34.13 0.53L34.13 0.53Q33.12 0.53 33.12 0L33.12 0Q33.12-0.14 33.41-1.2L33.41-1.2Q34.9-7.2 40.08-11.04L40.08-11.04 3.36-11.04Z",
+      fill: "#404040"
+    })
+  })]
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RightArrow);
 
 /***/ }),
 
@@ -2959,14 +3034,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dompurify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dompurify */ "./node_modules/dompurify/dist/purify.es.mjs");
 
 const validateAndEncodeURL = url => {
-  if (url == '#') {
-    return '#';
-  }
   try {
-    const urlObj = new URL(url);
-    if (urlObj.origin !== window.location.origin && urlObj.origin !== 'https://images.unsplash.com' && urlObj.origin !== 'https://i.pinimg.com') {
-      throw new Error('Invalid URL origin');
-    }
     return dompurify__WEBPACK_IMPORTED_MODULE_0__["default"].sanitize(encodeURI(url), {
       ALLOWED_PROTOCOLS: ['http', 'https']
     });

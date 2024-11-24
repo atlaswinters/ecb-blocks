@@ -2,6 +2,7 @@
 import Controls from './controls';
 import parseString from '../../lib/helpers/parseString';
 import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
+import RightArrow from '../../components/rightArrow';
 
 /**
  * Retrieves the translation of text.
@@ -38,26 +39,38 @@ export default function Edit(props) {
 	const blockProps = useBlockProps({
 		className: 'ecb-blocks-layout wp-block-ecb-blocks-photogrid'
 	});
+	const {
+		attributes: {
+			leftPhoto,
+			rightPhotoOne,
+			rightPhotoTwo,
+			headline,
+			subheadline,
+			excerpt,
+			link,
+			linkText
+		}
+	} = props;
 	return (
 		<div {...blockProps}>
 			<div className="grid">
 				<div>
-					<img src={validateAndEncodeURL(props.attributes.leftPhoto)} />
+					<img src={validateAndEncodeURL(leftPhoto)} />
 				</div>
 				<div>
 					<div>
-						<img src={validateAndEncodeURL(props.attributes.rightPhotoOne)} />
+						<img src={validateAndEncodeURL(rightPhotoOne)} />
 					</div>
 					<div>
-						<img src={validateAndEncodeURL(props.attributes.rightPhotoTwo)} />
+						<img src={validateAndEncodeURL(rightPhotoTwo)} />
 					</div>
 				</div>
 			</div>
 			<div className="content">
-				<h1>{parseString(props.attributes.headline)}</h1>
-				<h2>{parseString(props.attributes.subheadline)}</h2>
-				<p>{parseString(props.attributes.excerpt)}</p>
-				<a href={validateAndEncodeURL(props.attributes.link)} class="arrow-button">{parseString(props.attributes.linkText)}<span>&#8702;</span></a>
+				<h1>{parseString(headline)}</h1>
+				<h2>{parseString(subheadline)}</h2>
+				<p>{parseString(excerpt)}</p>
+				<a href={validateAndEncodeURL(link)} class="arrow-button">{parseString(linkText)}<span><RightArrow /></span></a>
 			</div>
 			<Controls {...props} />
 		</div>
