@@ -76,4 +76,7 @@
   .wp-block-ecb-blocks-photogrid .grid {
     min-height: 300px;
   }
+  .wp-block-ecb-blocks-photogrid .content {
+    padding: 1rem 3rem 3.5rem 3rem;
+  }
 }
