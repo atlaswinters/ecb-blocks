@@ -33,29 +33,29 @@
 
     h1 {
         color: var(--dark-gray);
-        font: 400 1.88rem/1.55 'Montserrat', sans-serif;
+        font: 400 1.8rem/1.4 'Montserrat', sans-serif;
     }
 
     h2 {
         color: var(--gray);
-        font: 400 1.28rem/1.5 'Montserrat', sans-serif;
-        margin-top: 0.57rem;
+        font: 400 1.2rem/1.5 'Montserrat', sans-serif;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
     }
 
     p {
         color: var(--gray);
-        font: 400 15px/1.6 'Source Sans Pro', sans-serif;
-        line-height: 1.6;
+        font: 400 1rem/1.6 'Source Sans Pro', sans-serif;
     }
 
     .arrow-button {
         position: relative;
-        font-size: 15px;
         transition: all 0.3s ease;
         color: var(--gray);
         text-decoration: none;
-        font: 400 1.1rem/1.5 'Montserrat', sans-serif;
+        font: 400 1rem/1.5 'Montserrat', sans-serif;
         place-self: flex-start;
+        margin-top: 0.5rem;
 
         &:after {
             content: " ";
@@ -91,6 +91,22 @@
                 }
             }
         }  
+    }
+
+    @media only screen and (max-width: 740px) { 
+        h1 {
+            font: 400 1.65rem/1.4 'Montserrat', sans-serif;
+        }
+        
+        h2 {
+            font: 400 1rem/1.5 'Montserrat', sans-serif;
+            margin-bottom: 0rem;
+        }
+        
+        p {
+            color: var(--gray);
+            font: 400 1rem/1.6 'Source Sans Pro', sans-serif;
+        }
     }
 }
 
