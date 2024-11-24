@@ -1,13 +1,24 @@
 import DOMPurify from 'dompurify';
 
 const validateAndEncodeURL = (url) => {
+    const trimmedUrl = (url || '').trim();
+
+    const sanitizedUrl = DOMPurify.sanitize(trimmedUrl, {
+        ALLOWED_TAGS: [],
+        ALLOWED_ATTR: [],
+        ALLOW_DATA_ATTR: false,
+        ADD_ATTR: ['target', 'rel'],
+        USE_PROFILES: { html: false }
+    });
+
     try {
-        return DOMPurify.sanitize(encodeURI(url), {
-            ALLOWED_PROTOCOLS: ['http', 'https']
-        });
-    } catch (e) {
-        console.error('Invalid URL:', e);
-        return '';
+        const url = new URL(sanitizedUrl);
+        if (!['http:', 'https:'].includes(url.protocol)) {
+            return '#';
+        }
+        return sanitizedUrl;
+    } catch {
+        return '#';
     }
 };
 

@@ -2551,7 +2551,7 @@ const Controls = ({
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(MediaUpload, {
           onSelect: media => {
             setAttributes({
-              rightPhotoOne: v(media.url)
+              rightPhotoOne: (0,_lib_helpers_validateAndEncodeURL__WEBPACK_IMPORTED_MODULE_2__["default"])(media.url)
             });
           },
           allowedTypes: ALLOWED_MEDIA_TYPES,
@@ -2717,7 +2717,6 @@ function Edit(props) {
       headline,
       subheadline,
       excerpt,
-      link,
       linkText
     }
   } = props;
@@ -3033,13 +3032,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dompurify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dompurify */ "./node_modules/dompurify/dist/purify.es.mjs");
 
 const validateAndEncodeURL = url => {
+  const trimmedUrl = (url || '').trim();
+  const sanitizedUrl = dompurify__WEBPACK_IMPORTED_MODULE_0__["default"].sanitize(trimmedUrl, {
+    ALLOWED_TAGS: [],
+    ALLOWED_ATTR: [],
+    ALLOW_DATA_ATTR: false,
+    ADD_ATTR: ['target', 'rel'],
+    USE_PROFILES: {
+      html: false
+    }
+  });
   try {
-    return dompurify__WEBPACK_IMPORTED_MODULE_0__["default"].sanitize(encodeURI(url), {
-      ALLOWED_PROTOCOLS: ['http', 'https']
-    });
-  } catch (e) {
-    console.error('Invalid URL:', e);
-    return '';
+    const url = new URL(sanitizedUrl);
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      return '#';
+    }
+    return sanitizedUrl;
+  } catch {
+    return '#';
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validateAndEncodeURL);

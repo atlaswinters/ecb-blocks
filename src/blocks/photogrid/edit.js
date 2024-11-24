@@ -47,7 +47,6 @@ export default function Edit(props) {
 			headline,
 			subheadline,
 			excerpt,
-			link,
 			linkText
 		}
 	} = props;

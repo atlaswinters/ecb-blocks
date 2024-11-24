@@ -36,7 +36,7 @@ const Controls = ({
                     />
                     <MediaUpload
                         onSelect={(media) => {
-                            setAttributes({ rightPhotoOne: v(media.url) });
+                            setAttributes({ rightPhotoOne: validateAndEncodeURL(media.url) });
                         }}
                         allowedTypes={ALLOWED_MEDIA_TYPES}
                         value={validateAndEncodeURL(rightPhotoOne)}
