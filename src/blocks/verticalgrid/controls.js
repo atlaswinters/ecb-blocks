@@ -11,41 +11,21 @@ const Controls = (props) => {
     return (
         <InspectorControls>
             <Panel>
-                <PanelBody title="Edit/Update Left Photo Grid Photos" icon={More} initialOpen={false}>
+                <PanelBody title="Edit/Update Vertical Stripes Grid Photo" icon={More} initialOpen={false}>
                     <MediaUpload
                         onSelect={(media) => {
-                            props.setAttributes({ leftPhoto: validateAndEncodeURL(media.url) });
+                            props.setAttributes({ highlightedPhoto: validateAndEncodeURL(media.url) });
                         }}
                         allowedTypes={ALLOWED_MEDIA_TYPES}
-                        value={props.attributes.leftPhoto}
+                        value={props.attributes.highlightedPhoto}
                         render={({ open }) => (
-                            <Button className="button" onClick={open}>Update Left Image</Button>
-                        )}
-                    />
-                    <MediaUpload
-                        onSelect={(media) => {
-                            props.setAttributes({ rightPhotoOne: validateAndEncodeURL(media.url) });
-                        }}
-                        allowedTypes={ALLOWED_MEDIA_TYPES}
-                        value={props.attributes.rightPhotoOne}
-                        render={({ open }) => (
-                            <Button className="button" onClick={open}>Update Top Right Image</Button>
-                        )}
-                    />
-                    <MediaUpload
-                        onSelect={(media) => {
-                            props.setAttributes({ rightPhotoTwo: validateAndEncodeURL(media.url) });
-                        }}
-                        allowedTypes={ALLOWED_MEDIA_TYPES}
-                        value={props.attributes.rightPhotoTwo}
-                        render={({ open }) => (
-                            <Button className="button" onClick={open}>Update Bottom Right Image</Button>
+                            <Button className="button" onClick={open}>Update Main Vertical Image</Button>
                         )}
                     />
                 </PanelBody>
             </Panel>
             <Panel>
-                <PanelBody title="Edit Left Photo Grid Content" icon={More} initialOpen={false}>
+                <PanelBody title="Edit Vertical Stripes Grid Content" icon={More} initialOpen={false}>
                     <div>
                         <PostSelect
                             onChange={(selectedPost) => {
@@ -72,9 +52,9 @@ const Controls = (props) => {
                         onChange={(value) => { props.setAttributes({ subheadline: parseString(value) }) }}
                     />
                     <TextControl
-                        label='Excerpt'
-                        value={parseString(props.attributes.excerpt)}
-                        onChange={(value) => { props.setAttributes({ excerpt: parseString(value) }) }}
+                        label='Side Quote'
+                        value={parseString(props.attributes.sidequote)}
+                        onChange={(value) => { props.setAttributes({ sidequote: parseString(value) }) }}
                     />
                     <TextControl
                         label='CTA/Block Link'

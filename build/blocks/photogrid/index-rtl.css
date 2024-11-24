@@ -6,3 +6,6 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.components-button.button {
+  margin: 0.25rem auto;
+}

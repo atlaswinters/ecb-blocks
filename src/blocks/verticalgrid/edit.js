@@ -2,7 +2,6 @@
 import Controls from './controls';
 import parseString from '../../lib/helpers/parseString';
 import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
-
 /**
  * Retrieves the translation of text.
  *
@@ -36,28 +35,22 @@ import './editor.scss';
  */
 export default function Edit(props) {
 	const blockProps = useBlockProps({
-		className: 'ecb-blocks-layout wp-block-ecb-blocks-photogrid'
+		className: 'ecb-blocks-layout wp-block-ecb-blocks-vertical-stripes-grid'
 	});
 	return (
 		<div {...blockProps}>
-			<div className="grid">
+			<div className="content">
 				<div>
-					<img src={validateAndEncodeURL(props.attributes.leftPhoto)} />
-				</div>
-				<div>
-					<div>
-						<img src={validateAndEncodeURL(props.attributes.rightPhotoOne)} />
-					</div>
-					<div>
-						<img src={validateAndEncodeURL(props.attributes.rightPhotoTwo)} />
-					</div>
+					<h1>{parseString(props.attributes.headline)}</h1>
+					<h2>{parseString(props.attributes.subheadline)}</h2>
+					<a href={validateAndEncodeURL(props.attributes.link)} class="arrow-button">{parseString(props.attributes.linkText)}<span>&#8702;</span></a>
 				</div>
 			</div>
-			<div className="content">
-				<h1>{parseString(props.attributes.headline)}</h1>
-				<h2>{parseString(props.attributes.subheadline)}</h2>
-				<p>{parseString(props.attributes.excerpt)}</p>
-				<a href={validateAndEncodeURL(props.attributes.link)} class="arrow-button">{parseString(props.attributes.linkText)}<span>&#8702;</span></a>
+			<div className="grid">
+				<img src={validateAndEncodeURL(props.attributes.highlightedPhoto)} />
+				<div>
+					<p>{parseString(props.attributes.sidequote)}</p>
+				</div>
 			</div>
 			<Controls {...props} />
 		</div>

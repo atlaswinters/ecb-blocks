@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify';
 const validateAndEncodeURL = (url) => {
     try {
         const urlObj = new URL(url);
-        if (urlObj.origin !== window.location.origin) {
+        if (urlObj.origin !== window.location.origin && urlObj.origin !== 'https://images.unsplash.com' && urlObj.origin !== 'https://i.pinimg.com') {
             throw new Error('Invalid URL origin');
         }
         return DOMPurify.sanitize(encodeURI(url), {

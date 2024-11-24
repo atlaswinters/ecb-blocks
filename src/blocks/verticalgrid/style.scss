@@ -1,0 +1,75 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+ .wp-block-ecb-blocks-vertical-stripes-grid {
+	display: grid;
+	grid-template-columns: 60% 40%;
+	min-height: 440px;
+
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		div:last-child {
+			text-align: center;
+			color: #fff;
+			background: var(--dark-khaki);
+
+			p {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				font: italic 100 1rem/1.47 'Montserrat', sans-serif;
+				writing-mode: vertical-rl;
+				text-orientation: mixed;
+				width: 80%;
+				height: 400px;
+			}
+		}
+	}
+
+	.content {
+		position: relative;
+		background: var(--tan);
+
+		div {
+			position: absolute;
+			padding: 3rem;
+			top: 4rem;
+			right: -40px;
+			background: #fff;
+
+			h2 {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	div > img {
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+	}
+
+	@media only screen and (max-width: 740px) {
+		grid-template-columns: 50% 50%;
+
+		.grid {
+			grid-template-columns: 1fr;
+
+			div:last-child  {
+				display: none;
+			}
+		}
+
+		.content {
+			div {
+				right: -110px;
+			}
+		}
+	}
+ }

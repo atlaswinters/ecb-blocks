@@ -26,6 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function create_block_wp_multi_block_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/photogrid' );
+	register_block_type( __DIR__ . '/build/blocks/verticalgrid' );
 }
 add_action( 'init', 'create_block_wp_multi_block_block_init' );
 
