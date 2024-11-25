@@ -1,45 +1,49 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ecb-blocks/verticalgrid",
+	"name": "ecb-blocks/verticalgridmultilink",
 	"version": "0.1.0",
-	"title": "Vertical Grid - Side Quote",
+	"title": "Vertical Grid - MultiLink",
 	"category": "ecb-blocks",
 	"icon": "layout",
 	"attributes": {
-		"stripeOneBgColor": {
+		"stripeBg": {
 			"type": "string",
             "default": "#f1ece6"
-		},
-		"stripeThreeBgColor": {
-			"type": "string",
-            "default": "#666b61"
-		},
-		"contentBgColor": {
-			"type": "string",
-            "default": "#f7f7f4"
 		},
 		"invertTextColors": {
 			"type": "boolean",
             "default": false
 		},
-		"selectedPostId": {
-			"type": "string",
-			"default": ""
-		},
-		"highlightedPhoto": {
+		"photo": {
 			"type": "string",
 			"default": "https://images.unsplash.com/photo-1505284361246-cedb2a8d2986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"
 		},
-		"headline": {
+		"photoTwo": {
 			"type": "string",
-			"default": "Headline/Title Goes Here"
+			"default": "https://images.unsplash.com/photo-1505284361246-cedb2a8d2986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"
+		},
+		"photoThree": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1505284361246-cedb2a8d2986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"
+		},
+		"photoFour": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1505284361246-cedb2a8d2986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"
 		},
 		"subheadline": {
 			"type": "string",
-			"default": "This is an optional subheadline"
+			"default": "Subheadline extends slight longer"
 		},
-		"sidequote": {
+		"bulletOne": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+		},
+		"bulletTwo": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+		},
+		"footerText": {
 			"type": "string",
 			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 		},
@@ -49,7 +53,23 @@
 		},
 		"linkText": {
 			"type": "string",
-			"default": "Learn More"
+			"default": "A new kind of headline"
+		},
+		"linkOne": {
+			"type": "string",
+			"default": "#"
+		},
+		"linkTwo": {
+			"type": "string",
+			"default": "#"
+		},
+		"linkThree": {
+			"type": "string",
+			"default": "#"
+		},
+		"linkFour": {
+			"type": "string",
+			"default": "#"
 		}
 	},
 	"supports": {
@@ -75,8 +95,8 @@
 	},
 	"keywords": [
 		"Catalog",
-		"vertical",
-		"stripes",
+		"feature",
+		"highlight",
 		"Layout"
 	],
 	"textdomain": "ecb-blocks",

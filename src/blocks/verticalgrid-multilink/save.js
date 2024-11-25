@@ -1,5 +1,7 @@
 import parseString from '../../lib/helpers/parseString';
 import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
+import InternalLink from '../../components/internalLink';
+import CheckCircle from '../../components/checkCircle';
 import RightArrow from '../../components/rightArrow';
 
 /**
@@ -21,36 +23,54 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({
 	attributes: {
-		stripeOneBgColor,
-		stripeThreeBgColor,
-		contentBgColor,
-		invertTextColors,
-		highlightedPhoto,
-		headline,
+		stripeBg,
+		photo,
+		photoTwo,
+		photoThree,
+		photoFour,
 		subheadline,
-		sidequote,
 		link,
-		linkText
+		linkText,
+		linkOne,
+		linkTwo,
+		linkThree,
+		linkFour,
 	}
 }) {
-	const invertedTextClass = invertTextColors ? 'ecb-light-text' : 'ecb-dark-text';
-
 	const blockProps = useBlockProps.save({
-		className: `ecb-blocks-layout wp-block-ecb-blocks-vertical-stripes-grid ${invertedTextClass}`
+		className: `ecb-blocks-layout wp-block-ecb-blocks-verticalgrid-multilink`
 	});
 	return (
 		<div {...blockProps}>
-			<div className="content" style={{ background: stripeOneBgColor }}>
-				<div style={{ background: contentBgColor }}>
-					<h1>{parseString(headline)}</h1>
-					<h2>{parseString(subheadline)}</h2>
-					<a href={validateAndEncodeURL(link)} class="arrow-button">{parseString(linkText)}<span><RightArrow/></span></a>
-				</div>
+			<div className="content" style={{ background: stripeBg }}>
+				<h2>{parseString(subheadline)}</h2>
+				<a href={validateAndEncodeURL(link)}>
+					<h1>
+						{parseString(linkText)}
+						<span><InternalLink /></span>
+					</h1>
+				</a>
 			</div>
 			<div className="grid">
-				<img src={validateAndEncodeURL(highlightedPhoto)} />
-				<div style={{ background: stripeThreeBgColor, }}>
-					<p>{parseString(sidequote)}</p>
+				<div>
+					<a href={validateAndEncodeURL(linkOne)}>
+						<img src={validateAndEncodeURL(photo)} />
+					</a>
+				</div>
+				<div>
+					<a href={validateAndEncodeURL(linkTwo)}>
+						<img src={validateAndEncodeURL(photoTwo)} />
+					</a>
+				</div>
+				<div>
+					<a href={validateAndEncodeURL(linkThree)}>
+						<img src={validateAndEncodeURL(photoThree)} />
+					</a>
+				</div>
+				<div>
+					<a href={validateAndEncodeURL(linkFour)}>
+						<img src={validateAndEncodeURL(photoFour)} />
+					</a>
 				</div>
 			</div>
 		</div>

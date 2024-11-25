@@ -136,6 +136,11 @@
 
     .arrow-button {
         color: var(--creme) !important;
+        
+        &:after {
+            background: var(--creme); 
+        }
+
         span {
             svg {
                 fill: var(--creme) !important;

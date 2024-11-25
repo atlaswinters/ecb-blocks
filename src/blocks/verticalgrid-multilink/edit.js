@@ -2,7 +2,8 @@
 import Controls from './controls';
 import parseString from '../../lib/helpers/parseString';
 import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
-import RightArrow from '../../components/rightArrow';
+import InternalLink from '../../components/internalLink';
+import CheckCircle from '../../components/checkCircle';
 
 /**
  * Retrieves the translation of text.
@@ -38,35 +39,54 @@ import './editor.scss';
 export default function Edit(props) {
 	const {
 		attributes: {
-			stripeOneBgColor,
-			stripeThreeBgColor,
-			contentBgColor,
-			invertTextColors,
-			highlightedPhoto,
-			headline,
+			stripeBg,
+			photo,
+			photoTwo,
+			photoThree,
+			photoFour,
 			subheadline,
-			sidequote,
-			linkText
+			link,
+			linkText,
+			linkOne,
+			linkTwo,
+			linkThree,
+			linkFour
 		}
 	} = props;
-	const invertedTextClass = invertTextColors ? 'ecb-light-text' : 'ecb-dark-text';
-
 	const blockProps = useBlockProps({
-		className: `ecb-blocks-layout wp-block-ecb-blocks-vertical-stripes-grid ${invertedTextClass}`
+		className: `ecb-blocks-layout wp-block-ecb-blocks-verticalgrid-multilink`
 	});
 	return (
 		<div {...blockProps}>
-			<div className="content" style={{ background: stripeOneBgColor }}>
-				<div style={{ background: contentBgColor }}>
-					<h1>{parseString(headline)}</h1>
-					<h2>{parseString(subheadline)}</h2>
-					<a href='#' class="arrow-button">{parseString(linkText)}<span><RightArrow/></span></a>
-				</div>
+			<div className="content" style={{ background: stripeBg }}>
+				<h2>{parseString(subheadline)}</h2>
+				<a href={validateAndEncodeURL(link)} target="_blank">
+					<h1>
+						{parseString(linkText)}
+						<span><InternalLink /></span>
+					</h1>
+				</a>
 			</div>
 			<div className="grid">
-				<img src={validateAndEncodeURL(highlightedPhoto)} />
-				<div style={{ background: stripeThreeBgColor }}>
-					<p>{parseString(sidequote)}</p>
+				<div>
+					<a href={validateAndEncodeURL(linkOne)} target="_blank">
+						<img src={validateAndEncodeURL(photo)} />
+					</a>
+				</div>
+				<div>
+					<a href={validateAndEncodeURL(linkTwo)} target="_blank">
+						<img src={validateAndEncodeURL(photoTwo)} />
+					</a>
+				</div>
+				<div>
+					<a href={validateAndEncodeURL(linkThree)} target="_blank">
+						<img src={validateAndEncodeURL(photoThree)} />
+					</a>
+				</div>
+				<div>
+					<a href={validateAndEncodeURL(linkFour)} target="_blank">
+						<img src={validateAndEncodeURL(photoFour)} />
+					</a>
 				</div>
 			</div>
 			<Controls {...props} />
