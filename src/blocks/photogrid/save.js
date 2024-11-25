@@ -38,22 +38,28 @@ export default function save({
 		<div {...blockProps}>
 			<div className="grid">
 				<div>
-					<img src={validateAndEncodeURL(leftPhoto)} />
+					<a href={validateAndEncodeURL(link)}>
+						<img src={validateAndEncodeURL(leftPhoto)} />
+					</a>
 				</div>
 				<div>
 					<div>
-						<img src={validateAndEncodeURL(rightPhotoOne)} />
+						<a href={validateAndEncodeURL(link)}>
+							<img src={validateAndEncodeURL(rightPhotoOne)} />
+						</a>
 					</div>
 					<div>
-						<img src={validateAndEncodeURL(rightPhotoTwo)} />
+						<a href={validateAndEncodeURL(link)}>
+							<img src={validateAndEncodeURL(rightPhotoTwo)} />
+						</a>
 					</div>
 				</div>
 			</div>
-			<div className="content" style={{background: BgColor}}>
+			<div className="content" style={{ background: BgColor }}>
 				<h1>{parseString(headline)}</h1>
 				<h2>{parseString(subheadline)}</h2>
 				<p>{parseString(excerpt)}</p>
-				<a href={encodeURI(link)} class="arrow-button">{parseString(linkText)} <span><RightArrow /></span></a>
+				<a href={validateAndEncodeURL(link)} class="arrow-button">{parseString(linkText)} <span><RightArrow /></span></a>
 			</div>
 		</div>
 	);

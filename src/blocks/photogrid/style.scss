@@ -26,7 +26,16 @@
 			transition: all 1s ease-in-out;
 		}
 
-		div>img {
+		div>a {
+			position: absolute;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			min-width: 100%;
+			min-height: 100%;
+		}
+
+		div>a img {
 			position: absolute;
 			object-fit: cover;
 			transform-origin: center;
@@ -38,7 +47,7 @@
 			transition: all 0.8s ease;
 		}
 
-		div:hover>img {
+		div:hover>a img {
 			transform: scale(1.2);
 		}
 	}
@@ -51,7 +60,10 @@
 		padding: 2.7rem 3rem 3.5rem 3rem;
 		background: var(--tan);
 
-		h1, h2, p, a {
+		h1,
+		h2,
+		p,
+		a {
 			align-self: flex-start;
 		}
 
@@ -66,12 +78,14 @@
 
 	@media only screen and (max-width: 740px) {
 		grid-template-columns: 1fr;
+
 		.grid {
 			margin-bottom: 0.5rem;
 			margin-right: 0rem;
 			min-height: 400px;
 		}
 	}
+
 	@media only screen and (max-width: 640px) {
 		.content {
 			padding: 0.5rem 2rem 2.5rem 2rem;

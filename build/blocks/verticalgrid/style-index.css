@@ -1,1 +1,85 @@
-.wp-block-ecb-blocks-vertical-stripes-grid{animation:ecbFadeIn .3s ease;display:grid;grid-template-columns:60% 40%;min-height:440px}.wp-block-ecb-blocks-vertical-stripes-grid .grid{display:grid;grid-template-columns:75% 25%}.wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child{align-items:center;background:var(--dark-khaki);display:flex;justify-content:center;position:relative;text-align:center}.wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child p{color:var(--creme);font:italic 100 1rem/1.47 Montserrat,sans-serif;padding:2rem 0;text-orientation:mixed;writing-mode:vertical-rl}.wp-block-ecb-blocks-vertical-stripes-grid .content{align-items:center;background:var(--tan);display:flex;position:relative}.wp-block-ecb-blocks-vertical-stripes-grid .content div{margin-left:3rem;max-width:600px;min-width:60%;padding:5rem 4rem 6rem;position:absolute;right:-120px}.wp-block-ecb-blocks-vertical-stripes-grid .content div h2{margin-bottom:1.5rem}.wp-block-ecb-blocks-vertical-stripes-grid .content .arrow-button{top:8px}.wp-block-ecb-blocks-vertical-stripes-grid div>img{height:100%;-o-object-fit:cover;object-fit:cover;width:100%}@media only screen and (max-width:740px){.wp-block-ecb-blocks-vertical-stripes-grid{grid-template-columns:65% 35%}.wp-block-ecb-blocks-vertical-stripes-grid .grid{grid-template-columns:1fr}.wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child{display:none}.wp-block-ecb-blocks-vertical-stripes-grid .content div{bottom:0;display:flex;flex-direction:column;height:calc(100% - 2rem);justify-content:center;margin-left:0;padding:0 1.5rem 2rem;position:unset;right:0;width:100%}}
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/verticalgrid/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-ecb-blocks-vertical-stripes-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  min-height: 440px;
+  animation: ecbFadeIn 0.3s ease;
+}
+.wp-block-ecb-blocks-vertical-stripes-grid .grid {
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+.wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: var(--dark-khaki);
+}
+.wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child p {
+  font: italic 100 1rem/1.47 "Montserrat", sans-serif;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: var(--creme);
+  padding: 2rem 0;
+}
+.wp-block-ecb-blocks-vertical-stripes-grid .content {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: var(--tan);
+}
+.wp-block-ecb-blocks-vertical-stripes-grid .content div {
+  position: absolute;
+  padding: 5rem 4rem 6rem 4rem;
+  right: -120px;
+  margin-left: 3rem;
+  max-width: 600px;
+  min-width: 60%;
+}
+.wp-block-ecb-blocks-vertical-stripes-grid .content div h2 {
+  margin-bottom: 1.5rem;
+}
+.wp-block-ecb-blocks-vertical-stripes-grid .content .arrow-button {
+  top: 8px;
+}
+.wp-block-ecb-blocks-vertical-stripes-grid div > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+@media only screen and (max-width: 740px) {
+  .wp-block-ecb-blocks-vertical-stripes-grid {
+    grid-template-columns: 65% 35%;
+  }
+  .wp-block-ecb-blocks-vertical-stripes-grid .grid {
+    grid-template-columns: 1fr;
+  }
+  .wp-block-ecb-blocks-vertical-stripes-grid .grid div:last-child {
+    display: none;
+  }
+  .wp-block-ecb-blocks-vertical-stripes-grid .content div {
+    position: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(100% - 2rem);
+    margin-left: 0;
+    padding: 0 1.5rem 2rem 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/
