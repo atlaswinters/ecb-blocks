@@ -21,22 +21,24 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save({
-	attributes: {
-		stripeBg,
-		photo,
-		photoTwo,
-		photoThree,
-		photoFour,
-		subheadline,
-		link,
-		linkText,
-		linkOne,
-		linkTwo,
-		linkThree,
-		linkFour,
-	}
-}) {
+export default function save(props) {
+	const {
+		attributes: {
+			stripeBg,
+			mainBgColor,
+			photo,
+			photoTwo,
+			photoThree,
+			photoFour,
+			subheadline,
+			link,
+			linkText,
+			linkOne,
+			linkTwo,
+			linkThree,
+			linkFour,
+		}
+	} = props;
 	const blockProps = useBlockProps.save({
 		className: `ecb-blocks-layout wp-block-ecb-blocks-verticalgrid-multilink`
 	});
@@ -51,7 +53,7 @@ export default function save({
 					</h1>
 				</a>
 			</div>
-			<div className="grid">
+			<div className="grid" style={{background: mainBgColor}}>
 				<div>
 					<a href={validateAndEncodeURL(linkOne)}>
 						<img src={validateAndEncodeURL(photo)} />

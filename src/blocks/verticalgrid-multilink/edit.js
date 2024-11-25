@@ -40,6 +40,7 @@ export default function Edit(props) {
 	const {
 		attributes: {
 			stripeBg,
+			mainBgColor,
 			photo,
 			photoTwo,
 			photoThree,
@@ -67,7 +68,7 @@ export default function Edit(props) {
 					</h1>
 				</a>
 			</div>
-			<div className="grid">
+			<div className="grid" style={{background: mainBgColor}}>
 				<div>
 					<a href={validateAndEncodeURL(linkOne)} target="_blank">
 						<img src={validateAndEncodeURL(photo)} />

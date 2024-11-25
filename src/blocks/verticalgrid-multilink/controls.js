@@ -26,6 +26,7 @@ const Controls = (props) => {
         setAttributes,
         attributes: {
             stripeBg,
+            mainBgColor,
             photo,
             photoTwo,
             photoThree,
@@ -99,17 +100,17 @@ const Controls = (props) => {
                                         link: validateAndEncodeURL(selectedPost.value.url),
                                         linkText: parseString(selectedPost.value.title),
                                     });
-                                    if ( '#' == linkOne ) {
-                                        setAttributes({ linkOne: validateAndEncodeURL(selectedPost.value.url)})
+                                    if ('#' == linkOne) {
+                                        setAttributes({ linkOne: validateAndEncodeURL(selectedPost.value.url) })
                                     }
-                                    if ( '#' == linkTwo ) {
-                                        setAttributes({ linkTwo: validateAndEncodeURL(selectedPost.value.url)})
+                                    if ('#' == linkTwo) {
+                                        setAttributes({ linkTwo: validateAndEncodeURL(selectedPost.value.url) })
                                     }
-                                    if ( '#' == linkThree ) {
-                                        setAttributes({ linkThree: validateAndEncodeURL(selectedPost.value.url)})
+                                    if ('#' == linkThree) {
+                                        setAttributes({ linkThree: validateAndEncodeURL(selectedPost.value.url) })
                                     }
-                                    if ( '#' == linkFour ) {
-                                        setAttributes({ linkFour: validateAndEncodeURL(selectedPost.value.url)})
+                                    if ('#' == linkFour) {
+                                        setAttributes({ linkFour: validateAndEncodeURL(selectedPost.value.url) })
                                     }
                                 }
                             }
@@ -162,6 +163,13 @@ const Controls = (props) => {
                         value={stripeBg}
                         colors={[...ecbcolors, ...useSetting('color.palette')]}
                         onChange={(value) => setAttributes({ stripeBg: value })}
+                    />
+                    <hr />
+                    <p><strong>Main Background Color</strong></p>
+                    <ColorPalette
+                        value={mainBgColor}
+                        colors={[...ecbcolors, ...useSetting('color.palette')]}
+                        onChange={(value) => setAttributes({ mainBgColor: value })}
                     />
                 </PanelBody>
             </Panel>

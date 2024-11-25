@@ -41,6 +41,7 @@ export default function Edit(props) {
 	});
 	const {
 		attributes: {
+			BgColor,
 			leftPhoto,
 			rightPhotoOne,
 			rightPhotoTwo,
@@ -65,7 +66,7 @@ export default function Edit(props) {
 					</div>
 				</div>
 			</div>
-			<div className="content">
+			<div className="content" style={{background: BgColor}}>
 				<h1>{parseString(headline)}</h1>
 				<h2>{parseString(subheadline)}</h2>
 				<p>{parseString(excerpt)}</p>

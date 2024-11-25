@@ -20,6 +20,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({
 	attributes: {
+		BgColor,
 		leftPhoto,
 		rightPhotoOne,
 		rightPhotoTwo,
@@ -34,7 +35,7 @@ export default function save({
 		className: "ecb-blocks-layout wp-block-ecb-blocks-photogrid"
 	});
 	return (
-		<div className={blockProps.className}>
+		<div {...blockProps}>
 			<div className="grid">
 				<div>
 					<img src={validateAndEncodeURL(leftPhoto)} />
@@ -48,7 +49,7 @@ export default function save({
 					</div>
 				</div>
 			</div>
-			<div className="content">
+			<div className="content" style={{background: BgColor}}>
 				<h1>{parseString(headline)}</h1>
 				<h2>{parseString(subheadline)}</h2>
 				<p>{parseString(excerpt)}</p>

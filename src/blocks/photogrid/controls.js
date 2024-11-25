@@ -1,15 +1,28 @@
 import PostSelect from '../../lib/ui-components/PostSelect';
 import parseString from '../../lib/helpers/parseString';
 import validateAndEncodeURL from '../../lib/helpers/validateAndEncodeURL';
+import ecbcolors from '../../components/ecb-colors';
 
-const { InspectorControls, MediaUpload } = wp.blockEditor;
-const { TextControl, Panel, PanelBody, More, Button } = wp.components;
+const { 
+    InspectorControls,
+    MediaUpload,
+    useSetting
+} = wp.blockEditor;
+const { 
+    TextControl,
+    Panel,
+    PanelBody,
+    More,
+    Button,
+    ColorPalette,
+} = wp.components;
 
 const ALLOWED_MEDIA_TYPES = ['image'];
 
 const Controls = ({
     setAttributes,
     attributes: {
+        BgColor,
         leftPhoto,
         rightPhotoOne,
         rightPhotoTwo,
@@ -97,6 +110,17 @@ const Controls = ({
                         label='Link Text'
                         value={parseString(linkText)}
                         onChange={(value) => { setAttributes({ linkText: parseString(value) }) }}
+                    />
+                </PanelBody>
+            </Panel>
+            <Panel>
+                <PanelBody title="Colors" icon={More} initialOpen={false}>
+                    <hr />
+                    <p><strong>Main Content Color</strong></p>
+                    <ColorPalette
+                        value={BgColor}
+                        colors={[...ecbcolors, ...useSetting('color.palette')]}
+                        onChange={(value) => setAttributes({ BgColor: value })}
                     />
                 </PanelBody>
             </Panel>

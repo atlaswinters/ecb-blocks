@@ -11,9 +11,9 @@
       "type": "string",
       "default": "#f1ece6"
     },
-    "invertTextColors": {
-      "type": "boolean",
-      "default": false
+    "mainBgColor": {
+      "type": "string",
+      "default": "#f7f7f4"
     },
     "photo": {
       "type": "string",
@@ -34,18 +34,6 @@
     "subheadline": {
       "type": "string",
       "default": "Subheadline extends slight longer"
-    },
-    "bulletOne": {
-      "type": "string",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    "bulletTwo": {
-      "type": "string",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    "footerText": {
-      "type": "string",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "link": {
       "type": "string",
